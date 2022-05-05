@@ -8,7 +8,7 @@ Each waypoint in the list contains  [x,y,s,dx,dy] values. x and y are the waypoi
 
 The highway's waypoints loop around so the frenet s value, distance along the road, goes from 0 to 6945.554.
 
-## Basic Build Instructions
+### Basic Build Instructions
 
 1. Clone this repo.
 2. Make a build directory: `mkdir build && cd build`
@@ -53,21 +53,21 @@ the path has processed since last time.
 ### Details of implementation
 
 #### Prediction main.cpp:107-143
-In this step, sensor fusion data is analyzed if the current and adjecent lanes are free or occupied. 
-Car's lanes are determined according to d values at Frenet frame. (main.cpp:115-121)
+In this step, sensor fusion data is analyzed if the current and adjecent lanes are free or occupied.   
+Car's lanes are determined according to d values at Frenet frame. (main.cpp:115-121)  
 Since the sensor fusion data is delayed, and we are calculating a path acutually for future; car's positions for the time that the path will be calculated, are predicted using their speed. (main.cpp:131)
 
 
 #### Behaviour
-Once the lane's status (free, occupied) is determined a behaviour is selected to keep current lane or change to left/right lane. If there is a slow car ahead and lane change is not possible than the speed of the card decrased. (main.cpp:148-168)
+Once the lane's status (free, occupied) is determined a behaviour is selected to keep current lane or change to left/right lane. If there is a slow car ahead and lane change is not possible than the speed of the card decrased. (main.cpp:148-168)  
 
 Than a path is calculated with the remaining points from the previous path and adding three new way points 30m in between.
-All points are transfered to local car coordinates. (main.cpp:218-224)
+All points are transfered to local car coordinates. (main.cpp:218-224)  
 
-Than spline library is used to generate path between these waypoints. To adjust the vehicle's speed number of points taken from the spline is determined according to calculated speed. (main.cpp:252-254)
+Than spline library is used to generate path between these waypoints. To adjust the vehicle's speed number of points taken from the spline is determined according to calculated speed. (main.cpp:252-254)  
 
 
-## Dependencies
+### Dependencies
 
 * cmake >= 3.5
   * All OSes: [click here for installation instructions](https://cmake.org/install/)
